@@ -2,6 +2,12 @@
 
 const input = require("readline-sync");
 
+const theVowels = {
+  3: ["A", "E", "I", "O", "U"]
+};
+
+
+
 const oldPointStructure = {
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
   2: ['D', 'G'],
@@ -12,10 +18,12 @@ const oldPointStructure = {
   10: ['Q', 'Z']
 };
 
+
+
 function oldScrabbleScorer(word) {
 	word = word.toUpperCase();
 	let letterPoints = "";
- 
+  
 	for (let i = 0; i < word.length; i++) {
  
 	  for (const pointValue in oldPointStructure) {
@@ -23,20 +31,61 @@ function oldScrabbleScorer(word) {
 		 if (oldPointStructure[pointValue].includes(word[i])) {
 			letterPoints += `Points for '${word[i]}': ${pointValue}\n`
 		 }
- 
+
 	  }
 	}
 	return letterPoints;
  }
 
+
+
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
 
-function initialPrompt() {
-   console.log("Let's play some scrabble! Enter a word:");
+
+function initialPrompt(word) {
+let scoreCounter;
+console.log("Let's play some scrabble! Enter a word:");
+word = input.question("Enter a word to score: ");
+console.log("\n");
+scoreCounter = oldScrabbleScorer(word);
+simpleScore = function(word);
+vowelBonusScore = function(word);
+
+console.log("Vowel Points: " + vowelBonusScore);
+console.log(scoreCounter);
+
 };
 
-let simpleScore;
+
+function (word) {
+  console.log("Total Score: " + word.length);
+  console.log("_____________________");
+  return word.length;
+}
+
+function (word) {
+  let letterPoints = 0;
+  for (let i = 0; i <= word.length; i++) {
+ if (word[i] == theVowels[i]) {
+			letterPoints += 3;
+     } else {
+       letterPoints += 1;
+     }
+} 
+  return letterPoints;
+}
+
+
+
+
+let simpleScore = function(input) {
+  for (i = 0; i <= input.length; i++) {
+
+  }
+  
+}
+
 
 let vowelBonusScore;
 
