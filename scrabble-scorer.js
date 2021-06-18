@@ -49,8 +49,8 @@ console.log("Let's play some scrabble! Enter a word:");
 word = input.question("Enter a word to score: ");
 console.log("\n");
 scoreCounter = oldScrabbleScorer(word);
-simpleScore = function(word);
-vowelBonusScore = function(word);
+simpleScore = function (word);
+vowelBonusScore = function (word);
 
 console.log("Vowel Points: " + vowelBonusScore);
 console.log(scoreCounter);
@@ -58,13 +58,8 @@ console.log(scoreCounter);
 };
 
 
-function (word) {
-  console.log("Total Score: " + word.length);
-  console.log("_____________________");
-  return word.length;
-}
 
-function (word) {
+function vowelBonusScore(word) {
   let letterPoints = 0;
   for (let i = 0; i <= word.length; i++) {
  if (word[i] == theVowels[i]) {
@@ -79,15 +74,27 @@ function (word) {
 
 
 
-let simpleScore = function(input) {
-  for (i = 0; i <= input.length; i++) {
-
-  }
-  
+let simpleScore = function (word) {
+  console.log(" Total Score: " + word.length);
+  console.log("___________");
+  return word.length;
 }
 
 
-let vowelBonusScore;
+let vowelBonusScore = function(word) {
+  let letterPoints = 0;
+  for (let i = 0; i <= word.length; i++) {
+ if (word[i] == theVowels[i]) {
+			letterPoints += 3;
+     } else {
+       letterPoints += 1;
+     }
+} 
+  return letterPoints;
+}
+
+
+
 
 let scrabbleScore;
 
