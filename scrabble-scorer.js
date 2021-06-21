@@ -120,6 +120,8 @@ const scoringAlgorithms = [objectSimple, objectVowelBonus, objectScrabble];
 
 function scorerPrompt() {
   let userInput = input.question("Which scoring algorithm would you like to use? 0 , 1 or 2? ");
+  console.log("                                 ");
+  console.log("0 - Simple: One point per character \n 1 - Vowel Bonus: Vowels are worth 3 points \n 2 - Scrabble: Uses scrabble point system");
   userInput = Number(userInput);
   //console.log(userInput);
   return scoringAlgorithms[userInput];
@@ -149,8 +151,8 @@ function runProgram() {
   //console.log(inputWord);
   //console.log(selectedObject);
   let finalScore = selectedObject.scoringFunction(inputWord);
-  console.log(" Total Score: " + finalScore);
-  console.log("___________");
+  console.log("________________________________");
+  console.log(" Score for " + inputWord.toUpperCase() + ": " + finalScore);
 }
 
 // Don't write any code below this line //
