@@ -33,7 +33,7 @@ function oldScrabbleScorer(word) {
 	  }
 	}
   return pointValueTotal;
-	//return letterPoints;
+	
  }
 
 
@@ -43,24 +43,16 @@ function oldScrabbleScorer(word) {
 
 
 function initialPrompt() {
-//let scoreCounter;
 console.log("Let's play some scrabble! Enter a word:");
 inputWord = input.question("Enter a word to score: ");
 console.log("\n");
 inputWord = inputWord.toLowerCase();
 
-//scoreCounter = oldScrabbleScorer(inputWord);
-
-//console.log("Vowel Points: " + vowelBonusScore);
-//console.log(scoreCounter);
-//console.log(word);
 };
 
 
 
 let simpleScore = function (word) {
- // console.log(" Total Score: " + word.length);
- // console.log("___________");
   return word.length;
 }
 
@@ -81,17 +73,9 @@ let vowelBonusScore = function(word) {
 
 
 let scrabbleScore = function(word) {
-  //let letterPoints = "";
   let total = 0;
-  //console.log(typeof (total));
-  //console.log(newPointStructure);
 	for (let i = 0; i < word.length; i++) {
- 
-	 // for (const pointValue in newPointStructure) 
- //console.log(word[i]);
-		// if (pointValue === word[i]) 
       total += newPointStructure[word[i]];
-    //console.log(total);
 	}
   return total;
 
@@ -123,7 +107,6 @@ function scorerPrompt() {
   console.log("                                 ");
   console.log("0 - Simple: One point per character \n 1 - Vowel Bonus: Vowels are worth 3 points \n 2 - Scrabble: Uses scrabble point system");
   userInput = Number(userInput);
-  //console.log(userInput);
   return scoringAlgorithms[userInput];
 }
 
@@ -148,10 +131,9 @@ let newPointStructure = transform(oldPointStructure);
 function runProgram() {
    initialPrompt(); 
    let selectedObject = scorerPrompt();
-  //console.log(inputWord);
-  //console.log(selectedObject);
+  
   let finalScore = selectedObject.scoringFunction(inputWord);
-  console.log("________________________________");
+  console.log("_______________________________________");
   console.log(" Score for " + inputWord.toUpperCase() + ": " + finalScore);
 }
 
